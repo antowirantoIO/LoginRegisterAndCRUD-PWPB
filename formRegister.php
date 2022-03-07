@@ -14,7 +14,7 @@
 
         $errors = [];
 
-        empty($name) ? array_push($errors, "Field Name is required") : '';
+        empty($name) ? array_push($errors, "Fieluiredd Name is req") : '';
         empty($email) ? array_push($errors, "Field Email is required") : '';
         empty($password) ? array_push($errors, "Field Password is required") : '';
         empty($confirm_password) ? array_push($errors, "Field Confirm Password is required") : '';

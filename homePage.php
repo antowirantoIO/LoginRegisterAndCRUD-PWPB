@@ -1,10 +1,14 @@
 <?php 
-    session_start();
+    require 'connection.php';
     // If the user is not logged in redirect to the login page...
     if (!isset($_SESSION['loggedin'])) {
         header('Location: formLogin.php');
         exit;
     }
+    $email = $_SESSION['email'];
+    $query  = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +22,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="pt-2">Selamat Datang...</h2>
+        <h2 class="pt-2">Selamat Datang <?= $data['name'] ?></h2>
         <a href="dataUsers.php" class="btn btn-primary">Data Users</a>
         <a href="logout.php" class="btn btn-danger my-5">Logout</a>
     </div>
